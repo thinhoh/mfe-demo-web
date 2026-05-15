@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "name": "Bàn phím cơ Custom",
+    "price": 1500000,
+    "image": "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=300",
+    "description": "Bàn phím cơ siêu mượt cho lập trình viên."
+  },
+  {
+    "id": "2",
+    "name": "Chuột Gaming Không Dây",
+    "price": 850000,
+    "image": "https://images.unsplash.com/photo-1527864550417-7fd91755a26a?w=300",
+    "description": "Độ nhạy cực cao, pin trâu."
+  },
+  {
+    "id": "3",
+    "name": "Tai nghe Chống ồn",
+    "price": 2200000,
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300",
+    "description": "Tập trung tuyệt đối khi viết code."
+  }
+]

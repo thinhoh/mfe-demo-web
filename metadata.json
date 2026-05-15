@@ -1,0 +1,6 @@
+{
+  "name": "Micro-frontend E-commerce App",
+  "description": "Một ứng dụng E-commerce xây dựng theo kiến trúc Micro-frontend sử dụng Vite Module Federation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
