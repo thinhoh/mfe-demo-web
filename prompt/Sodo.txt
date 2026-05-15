@@ -1,0 +1,32 @@
+microfrontend-web/
+│
+├── app-shell/
+│   ├── src/
+│   │   ├── App.tsx
+│   │   ├── routes.tsx
+│   │   └── layout/
+│   └── vite.config.ts
+│
+├── product-mfe/
+│   ├── src/
+│   │   ├── ProductList.tsx
+│   │   ├── ProductCard.tsx
+│   │   └── products.mock.ts
+│   └── vite.config.ts
+│
+├── cart-mfe/
+│   ├── src/
+│   │   ├── CartPage.tsx
+│   │   └── cartStore.ts
+│   └── vite.config.ts
+│
+├── profile-mfe/
+│   ├── src/
+│   │   ├── ProfileForm.tsx
+│   │   └── validation.ts
+│   └── vite.config.ts
+│
+└── shared/
+    ├── eventBus.ts
+    ├── types.ts
+    └── ui/

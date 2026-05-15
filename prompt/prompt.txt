@@ -1,0 +1,20 @@
+Tôi là một người mới bắt đầu hoàn toàn về lập trình. Tôi muốn xây dựng một ứng dụng Web theo kiến trúc Micro-frontend dựa trên hình ảnh và sơ đồ file mà tôi đã cung cấp.
+
+Công nghệ sử dụng: Node.js (pnpm), Vite, React, TailwindCSS và Module Federation. Dữ liệu sẽ được lấy (mock) từ file .json.
+
+Yêu cầu AI:
+
+Hướng dẫn cài đặt: Hãy cho tôi các lệnh chính xác để gõ vào Terminal (dùng pnpm) để tạo các project con (Host và Remote) theo đúng kiến trúc Module Federation.
+
+Cấu trúc file: Dựa vào sơ đồ tôi gửi, hãy xác nhận lại cấu trúc thư mục chuẩn.
+
+Viết mã chi tiết: Hãy viết nội dung cho từng file (ví dụ: vite.config.js, tailwind.config.js, App.jsx, và các file logic khác).
+
+Tính năng cơ bản: Thêm, giảm số lượng mua sản phẩm trong giỏ hàng. Thông tin user. Popup hiện lên khi mua hàng thành công.
+
+Kết nối: Giải thích cực kỳ chi tiết cách file A kết nối với file B, cách ứng dụng 'Host' gọi ứng dụng 'Remote' thông qua Module Federation.
+
+Dữ liệu: Viết file data.json và cách viết code để đọc dữ liệu từ file đó hiện lên màn hình.
+
+*Thêm các file: ảnh 1.png và Sodo.txt vào chung với prompt trên*
+
