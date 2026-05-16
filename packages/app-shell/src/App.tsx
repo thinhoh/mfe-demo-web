@@ -11,44 +11,17 @@ const App = () => {
   const [cartItems, setCartItems] = useState<Product[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
-  const [user, setUser] = useState<{name: string, phone: string, email: string, address: string} | null>(null);
+  const [user, setUser] = useState<{name: string} | null>(null);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [newName, setNewName] = useState("");
-  
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    address: ""
-  });
 
   const login = () => {
-    setIsLoginModalOpen(true);
-    setIsUserMenuOpen(false);
-  };
-
-  const handleLoginSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name.trim() || !formData.phone.trim() || !formData.email.trim() || !formData.address.trim()) {
-      alert("Vui lòng điền đầy đủ thông tin!");
-      return;
-    }
-    setUser({ ...formData });
-    setIsLoginModalOpen(false);
-    
-    // Nếu giỏ hàng đang có đồ và vừa click từ nút thanh toán thì tiện tay thanh toán luôn (tùy chọn)
-    if (cartItems.length > 0 && isCartOpen) {
-        setIsSuccessOpen(true);
-        setCartItems([]);
-        setIsCartOpen(false);
-    }
+    setUser({ name: "Nguyễn Văn A" });
   };
 
   const logout = () => {
     setUser(null);
     setIsUserMenuOpen(false);
-    setFormData({ name: "", phone: "", email: "", address: "" });
   };
 
   const updateName = () => {
@@ -96,10 +69,6 @@ const App = () => {
 
   const handleCheckout = () => {
     if (cartItems.length === 0) return;
-    if (!user) {
-      setIsLoginModalOpen(true);
-      return;
-    }
     setIsSuccessOpen(true);
     setCartItems([]);
     setIsCartOpen(false);
@@ -359,89 +328,6 @@ const App = () => {
               >
                 Tiếp tục mua sắm
               </button>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-
-      {/* Login / Registration Modal */}
-      <AnimatePresence>
-        {isLoginModalOpen && (
-          <>
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsLoginModalOpen(false)}
-              className="fixed inset-0 bg-black/40 backdrop-blur-md z-[100]"
-            />
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white rounded-3xl shadow-2xl z-[110] p-8"
-            >
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Thông tin giao hàng</h2>
-              <p className="text-gray-500 mb-6 text-sm">
-                Vui lòng điền đầy đủ thông tin để hoàn tất thanh toán.
-              </p>
-              <form onSubmit={handleLoginSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Họ và tên *</label>
-                  <input 
-                    type="text" 
-                    value={formData.name}
-                    onChange={e => setFormData({...formData, name: e.target.value})}
-                    className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600"
-                    placeholder="VD: Nguyễn Văn A"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Số điện thoại *</label>
-                  <input 
-                    type="tel" 
-                    value={formData.phone}
-                    onChange={e => setFormData({...formData, phone: e.target.value})}
-                    className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600"
-                    placeholder="VD: 0987654321"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
-                  <input 
-                    type="email" 
-                    value={formData.email}
-                    onChange={e => setFormData({...formData, email: e.target.value})}
-                    className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600"
-                    placeholder="VD: email@example.com"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Địa chỉ giao hàng *</label>
-                  <input 
-                    type="text" 
-                    value={formData.address}
-                    onChange={e => setFormData({...formData, address: e.target.value})}
-                    className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600"
-                    placeholder="VD: Số 123 Đường Ngọc Hồi..."
-                  />
-                </div>
-                <div className="pt-4 flex gap-3">
-                  <button 
-                    type="button"
-                    onClick={() => setIsLoginModalOpen(false)}
-                    className="flex-1 bg-gray-100 text-gray-700 py-3 rounded-xl font-bold hover:bg-gray-200 transition-colors"
-                  >
-                    Hủy bỏ
-                  </button>
-                  <button 
-                    type="submit"
-                    className="flex-1 bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition-colors"
-                  >
-                    Hoàn tất
-                  </button>
-                </div>
-              </form>
             </motion.div>
           </>
         )}
