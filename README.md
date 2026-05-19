@@ -6,8 +6,8 @@ Chào mừng bạn đến với dự án mẫu Micro-frontend (MFE) dành cho ng
 
 Dự án này chia làm 2 phần chính (và một phần dùng chung):
 
-1.  App Shell (Host - Cổng 3000): Đóng vai trò là "vỏ" bọc bên ngoài, quản lý Header, Giỏ hàng và điều phối các ứng dụng con.
-2.  Product MFE (Remote - Cổng 3001): Quản lý danh sách sản phẩm và dữ liệu (đọc từ file JSON).
+1.  App Shell: Đóng vai trò là "vỏ" bọc bên ngoài, quản lý Header, Giỏ hàng và điều phối các ứng dụng con.
+2.  Product MFE: Quản lý danh sách sản phẩm và dữ liệu (đọc từ file JSON).
 3.  Shared: Chứa các thành phần dùng chung như `EventBus` (để các app nói chuyện với nhau) và các `Types`.
 
 ---
@@ -20,9 +20,14 @@ Dự án này chia làm 2 phần chính (và một phần dùng chung):
 Sau khi bạn tải file ZIP hoặc Clone từ GitHub, hãy mở thư mục dự án bằng Visual Studio Code.
 
 ### Bước 2: Cài đặt các thư viện (Dependencies)
-Mở Terminal trong VS Code (Ctrl + `) và gõ lệnh:
+Mở Terminal trong thư mục gốc và gõ lệnh:
 ```bash
 pnpm install
+```
+
+Chấp nhận một số packages để build:
+```bash
+pnpm approve-builds
 ```
 
 ### Bước 3: Chạy ứng dụng
@@ -32,15 +37,13 @@ Cách 1: Chạy từng ứng dụng (Mở 2 cửa sổ Terminal)
 
 *   Terminal 1 (Product MFE):
     ```bash
-    pnpm vite packages/product-mfe --port 3001 --strictPort
+    cd packages/product-mfe pnpm build
+    pnpm preview
     ```
 *   Terminal 2 (App Shell):
     ```bash
-    pnpm vite packages/app-shell --port 3000
+    cd packages/app-shell pnpm dev
     ```
-
-Cách 2: Chạy nhanh (Nếu bạn đã tích hợp lệnh vào package.json)
-*(Xem phần Giải thích code bên dưới)*
 
 ---
 
