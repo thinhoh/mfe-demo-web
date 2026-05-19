@@ -37,12 +37,14 @@ Cách 1: Chạy từng ứng dụng (Mở 2 cửa sổ Terminal)
 
 *   Terminal 1 (Product MFE):
     ```bash
-    cd packages/product-mfe pnpm build
+    cd packages/product-mfe
+	pnpm build
     pnpm preview
     ```
 *   Terminal 2 (App Shell):
     ```bash
-    cd packages/app-shell pnpm dev
+    cd packages/app-shell
+	pnpm dev
     ```
 
 ---
